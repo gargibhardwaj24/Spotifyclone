@@ -5,10 +5,10 @@ body{
    color: white
 }
 .left{
-    width: 20vw;
+    width: 25vw;
 }
 .right{
-    width: 80vw;
+    width: 75vw;
 }
 nav ul{
      gap: 20px;
@@ -116,3 +116,142 @@ nav ol div li:hover{
     height: 44px;
     width: 5.1vw;
 }
+.library{
+    background-color: rgba(128, 128, 128, 0.16);
+    padding: 5px;
+    margin: 0;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+      font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  margin: 10px;
+  padding: 10px;
+}
+.firstplaylist{
+    background-color:rgba(128, 128, 128, 0.168) ;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+}
+.firstplaylist > span{
+     font-family: "Poppins", sans-serif;
+      font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+}
+.firstplaylist > p{
+       font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+#playlistbutton{
+       background-color:white;
+    color: black;
+    border-radius: 20px ;
+    height: 40px;
+    width: 8vw;
+       display: flex;
+       flex-wrap: nowrap;
+    align-self: center;
+    justify-content: center;
+    /* padding: 5px; */
+}
+#playlistbutton > div{
+    padding: 8px;
+}
+.Podcast{
+    background-color:rgba(128, 128, 128, 0.168) ;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+}
+.Podcast > span{
+     font-family: "Poppins", sans-serif;
+      font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+}
+.Podcast > p{
+       font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+#podcastbutton{
+       background-color:white;
+    color: black;
+    border-radius: 20px ;
+    height: 40px;
+    width: 12vw;
+       display: flex;
+       flex-wrap: nowrap;
+    align-self: center;
+    justify-content: center;
+   
+}
+#podcastbutton > div{
+    padding: 8px;
+}
+#podcastbutton:hover{
+    cursor: pointer;
+}
+#playlistbutton:hover{
+    cursor: pointer;
+}
+.other li{
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    font-size: 10px;
+}
+.other{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    width: 25vw;
+     padding: 5px;
+    margin: 0;
+     font-family: "Poppins", sans-serif;
+
+}
+div  h3{
+    font-size: 15px;
+    padding: 10px;
+    margin: auto;
+    font-family: "Poppins", sans-serif; 
+}
+div  h3:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.language{
+    border: 1px solid white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    width: 6vw;
+    height: 25px;
+    padding: 4px;
+    margin: 5px;
+       font-family: "Poppins", sans-serif;
+      font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+}
+.language >div{
+    padding: 5px;
+}
+/* .add:hover{
+    background-color: grey;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+} */
