@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify</title>
+    <title>Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utilities.css">
 </head>
@@ -12,74 +12,74 @@
 <body>
     <nav class="nav flex">
         <ul class="flex">
-            <li class="invert"><img src="svg/logo.svg" height="43px"></li>
-            <li class="button invert"><img src="svg/home.svg" height="30px"></li>
-            <li class="invert search">
-                <div id="searchleft"><img class="icon" src="svg/search.svg" width="30px">&nbsp;&nbsp;What do you want to
+            <li class="invert"><img src="svg/logo.svg" height="40px"></li>
+            <li class="button flex item-align justify-content invert"><img src="svg/home.svg" height="30px"></li>
+            <li class="invert font flex item-align search">
+                <div id="searchleft" class="item-align flex "><img class="icon" src="svg/search.svg" width="30px">&nbsp;&nbsp;What do you want to
                     play?</div>
-                <div id="searchright">|&nbsp;<img class="browse" src="svg/browse.svg" height="25px"></div>
+                <div id="searchright" class="item-align flex">|&nbsp;<img class="browse" src="svg/browse.svg" height="25px"></div>
             </li>
         </ul>
-        <ol>
-            <div class="navleft">
-                <li>Premium</li>
-                <li>Support</li>
-                <li>Download</li>
+        <ol class="flex">
+            <div class="navleft flex item-align justify-content ">
+                <li class="font">Premium</li>
+                <li class="font">Support</li>
+                <li class="font">Download</li>
             </div>
-            <div class="navright">
-                <li>|</li>
-                <li> <img class="invert" src="svg/install.svg" width="15px">&nbsp;Install App</li>
-                <li>Sign Up</li>
-                <li class="login">Login</li>
+            <div class="navright flex item-align justify-content">
+                <li class="font">|</li>
+                <li class="font"> <img class="invert" src="svg/install.svg" width="15px">&nbsp;Install App</li>
+                <li class="font">Sign Up</li>
+                <li class="login flex item-align justify-content font">Login</li>
             </div>
         </ol>
     </nav>
     <div class="container flex">
         <div class="left border">
             <div class="library border">
-                <div class="heading">
+                <div class="heading flex item-align font">
                     <span> Your Library</span>
                     <span class="add"><img class="invert " src="svg/add.svg" width="20px"></span>
                 </div>
-                <div class="firstplaylist">
+                <div class="firstplaylist font">
                     <span>Create your first playlist</span>
                     <p> It's easy, we'll help you</p>
-                    <span id="playlistbutton">
+                    <span id="playlistbutton" class="flex item-align justify-content">
                         <div>Create Playlist</div>
                     </span>
                 </div>
-                <div class="Podcast">
+                <div class="Podcast font">
                     <span>Let's find some podcast to follow</span>
                     <p> We'll keep you updated on new episodes</p>
-                    <span id="podcastbutton">
+                    <span id="podcastbutton" class="flex justify-content item-align">
                         <div>Browse Podcasts</div>
                     </span>
                 </div>
                 <div>
-                    <ul class="other">
+                    <ul class="other flex font ">
                         <li>Legal</li>
                         <li>Safety & Privacy Center</li>
                         <li>Privacy Policy</li>
                     </ul>
-                    <ul class="other">
+                    <ul class="other flex font">
                         <li>Cookies</li>
                         <li>About Ads</li>
                         <li>Accessibility</li>
                     </ul>
                     <h3> Cookies</h3>
                 </div>
-                <div class="language">
+                <div class="language flex justify-content item-align font">
                     <div><img class="invert" src="svg/globe.svg" height="18px"></div>
                     <div>English</div>
                 </div>
             </div>
         </div>
         <div class="right border">
-            <div class="header2">Trending Songs
+            <div class="header2 flex item-align font">Trending Songs
                 <span class="showall">Show all</span>
             </div>
             <div class="spotifyPlaylists">
-                <div class="cardContainer flex">
+                <div class="cardContainer font flex">
                     <div class="card">
                         <div class="play" >
                             <button class="play-button">
@@ -170,6 +170,9 @@
                         <h2> Heat Waves</h2>
                         <p>Glass Animals</p>
                     </div>
+                </div>
+                <div class="playbar">
+                    Playbar
                 </div>
             </div>
         </div>

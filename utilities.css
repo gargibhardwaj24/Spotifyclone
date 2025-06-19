@@ -1,17 +1,26 @@
-.border{
-    border: 2px ;
+.border {
+    border: 2px;
     margin: 5px;
     border-radius: 10px;
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.justify-content{
+
+.justify-content {
     justify-content: center;
 }
-.item-align{
+
+.item-align {
     align-items: center;
 }
-.invert{
+
+.invert {
     filter: invert(1);
+}
+
+.font {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
 }
