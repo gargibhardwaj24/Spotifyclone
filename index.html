@@ -15,9 +15,11 @@
             <li class="invert"><img src="svg/logo.svg" height="40px"></li>
             <li class="button flex item-align justify-content invert"><img src="svg/home.svg" height="30px"></li>
             <li class="invert font flex item-align search">
-                <div id="searchleft" class="item-align flex "><img class="icon" src="svg/search.svg" width="30px">&nbsp;&nbsp;What do you want to
+                <div id="searchleft" class="item-align flex "><img class="icon" src="svg/search.svg"
+                        width="30px">&nbsp;&nbsp;What do you want to
                     play?</div>
-                <div id="searchright" class="item-align flex">|&nbsp;<img class="browse" src="svg/browse.svg" height="25px"></div>
+                <div id="searchright" class="item-align flex">|&nbsp;<img class="browse" src="svg/browse.svg"
+                        height="25px"></div>
             </li>
         </ul>
         <ol class="flex">
@@ -57,16 +59,16 @@
                 </div>
                 <div>
                     <ul class="other flex font ">
-                        <li>Legal</li>
-                        <li>Safety & Privacy Center</li>
-                        <li>Privacy Policy</li>
+                       <a href="https://www.spotify.com/in-en/legal/end-user-agreement/"><li>Legal</li></a>
+                        <a href="https://www.spotify.com/in-en/safetyandprivacy"><li>Safety & Privacy Center</li></a>
+                       <a href="https://www.spotify.com/in-en/legal/privacy-policy/"><li>Privacy Policy</li></a> 
                     </ul>
                     <ul class="other flex font">
-                        <li>Cookies</li>
-                        <li>About Ads</li>
-                        <li>Accessibility</li>
+                        <a href="https://www.spotify.com/in-en/legal/cookies-policy/"><li>Cookies</li></a>
+                       <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"> <li>About Ads</li></a>
+                        <a href="https://www.spotify.com/in-en/accessibility"><li>Accessibility</li></a>
                     </ul>
-                    <h3> Cookies</h3>
+                    <a href="https://www.spotify.com/in-en/legal/cookies-policy/"><h3> Cookies</h3></a>
                 </div>
                 <div class="language flex justify-content item-align font">
                     <div><img class="invert" src="svg/globe.svg" height="18px"></div>
@@ -81,7 +83,7 @@
             <div class="spotifyPlaylists">
                 <div class="cardContainer font flex">
                     <div class="card">
-                        <div class="play" >
+                        <div class="playdiv">
                             <button class="play-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"
                                     fill="black">
@@ -99,7 +101,7 @@
                         <p>Ed sheeren</p>
                     </div>
                     <div class="card">
-                        <div class="play">
+                        <div class="playdiv">
                             <button class="play-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"
                                     fill="black">
@@ -117,8 +119,8 @@
                         <p>Sanju Rathod,G-SPXRK</p>
                     </div>
                     <div class="card">
-                        <div class="play">
-                           <button class="play-button">
+                        <div class="playdiv">
+                            <button class="play-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"
                                     fill="black">
                                     <path
@@ -135,8 +137,8 @@
                         <p>A.R Rahman, Chinmayi, Siva Ananth</p>
                     </div>
                     <div class="card">
-                        <div class="play">
-                        <button class="play-button">
+                        <div class="playdiv">
+                            <button class="play-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"
                                     fill="black">
                                     <path
@@ -153,8 +155,8 @@
                         <p>Siddhu Moosewala, Jenny Johal, The Kidd</p>
                     </div>
                     <div class="card">
-                        <div class="play">
-                           <button class="play-button">
+                        <div class="playdiv">
+                            <button class="play-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"
                                     fill="black">
                                     <path
@@ -171,12 +173,38 @@
                         <p>Glass Animals</p>
                     </div>
                 </div>
-                <div class="playbar">
-                    Playbar
+                <div class="songList font">
+                    <h2>Quick picks</h2>
+                    <ul>
+                       <li> <button class="songs font"> Play First Song</button> </li>
+                       <li> <button class="songs font"> Play Second Song</button> </li>
+                       <li> <button class="songs font"> Play Third Song</button> </li>
+                       <li> <button class="songs font"> Play Fourth Song</button> </li>
+                       <li> <button class="songs font"> Play Fivth Song</button> </li>
+                       <li> <button class="songs font"> Play sixth Song</button> </li>
+                       <li> <button class="songs font"> Play seventh Song</button> </li>
+                       <li> <button class="songs font"> Play eighth Song</button> </li>
+                       <li> <button class="songs font"> Play ninth Song</button> </li>
+                       <li> <button class="songs font"> Play tenth Song</button> </li>
+                    </ul>
+                </div>
+                <div class="playbar ">
+                    <div class="songinfo">
+
+                    </div>
+                    <div class="song-buttons flex item-align justify-content">
+                        <img class="previous" src="svg/previous.svg" alt="">
+                        <img id="play" class="play" src="svg/play.svg" alt="">
+                        <img class="next" src="svg/next.svg" alt="">
+                    </div>
+                    <div class="songtime">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
