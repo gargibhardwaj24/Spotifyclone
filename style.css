@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
 body {
     background-color: rgb(0, 0, 0);
     color: white;
@@ -20,13 +22,17 @@ body {
     padding: 5px;
     margin: 0;
     position: relative;
-  height: calc(100vh - 8vh); /* 8vh is your nav height */
+    height: calc(100vh - 8vh);
+    /* 8vh is your nav height */
 
-  overflow-y: auto; /* allow scrolling when needed */
-  overflow-x: hidden;
+    overflow-y: auto;
+    /* allow scrolling when needed */
+    overflow-x: hidden;
 }
+
 .container {
-  height: calc(100vh - 8vh); /* Adjust for nav */
+    height: calc(100vh - 8vh);
+    /* Adjust for nav */
 }
 
 nav {
@@ -188,7 +194,7 @@ nav ol div li:hover {
     padding: 10px;
     margin: 0;
     font-size: 10px;
-    text-decoration:none;
+    text-decoration: none;
     color: white;
 }
 
@@ -203,7 +209,7 @@ div h3 {
     padding: 10px;
     margin: 0px;
     font-family: "Poppins", sans-serif;
-    text-decoration:underline;
+    text-decoration: underline;
     color: white;
     text-decoration-color: white;
 }
@@ -304,44 +310,77 @@ div h3:hover {
 .play-button svg {
     fill: black;
 }
-.playbar{
+
+.playbar {
     bottom: 0;
     position: fixed;
     background-color: rgb(0, 0, 0);
     width: 71vw;
     padding: 12px;
 }
-.song-buttons{
+
+.song-buttons {
     gap: 24px;
 }
 
-.songList button{
+.songList button {
     list-style: none;
     border: 1px solid rgba(0, 0, 0, 0);
     padding: 10px;
     margin: 5px;
     width: 20vw;
-    background-color: rgba(0, 0, 0, 0) ;
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     border-radius: 5px;
 }
-.songList button:hover{
+
+.songList button:hover {
     background-color: rgba(128, 128, 128, 0.079);
 }
-.songList ul{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-auto-rows: 50px; /* adjust height as needed */
-  gap: 0px;
-  list-style: none;
-  padding: 0;
-  margin: 0 ;
-  max-width: 100vw; /* optional: control total width */
+
+.songList ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    grid-auto-rows: 50px;
+    /* adjust height as needed */
+    gap: 0px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100vw;
+    /* optional: control total width */
 }
-.songList h2{
+
+.songList h2 {
     padding: 10px;
     margin: 10px;
 }
 
+.seekbar {
+    height: 4px;
+    width: 98%;
+    background: white;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 8px;
+    margin: 0px;
+    cursor: pointer;
+}
 
-
+.circle {
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background-color: white;
+    position: relative;
+    bottom: 5px;
+    left: 0%;
+    transition: left 0.5s;
+}
+.song-buttons img{
+    cursor: pointer;
+}
+.abovebar{
+    justify-content: space-between;
+}
