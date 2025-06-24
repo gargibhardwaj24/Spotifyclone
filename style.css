@@ -21,29 +21,35 @@ body {
     background: linear-gradient(to bottom, rgb(38, 37, 37), black);
     padding: 5px;
     margin: 0;
-    position: relative;
-    height: calc(100vh - 8vh);
+    position: static;
+    /* height: calc(100vh - 10vh); */
     /* 8vh is your nav height */
-
     overflow-y: auto;
     /* allow scrolling when needed */
     overflow-x: hidden;
 }
 
 .container {
-    height: calc(100vh - 8vh);
+    height: calc(100vh - 10vh);
     /* Adjust for nav */
 }
 
 nav {
     margin: 0px;
-    height: 8vh;
+    height: 10vh;
     top: 0;
     position: sticky;
+    background-color: black;
 }
 
-nav ul {
+nav ul,
+nav ol {
     gap: 20px;
+    margin: 10px;
+    padding: 0;
+    top: 0;
+    position: sticky;
+    background-color: black;
 }
 
 nav ul li {
@@ -378,9 +384,16 @@ div h3:hover {
     left: 0%;
     transition: left 0.5s;
 }
-.song-buttons img{
+
+.song-buttons img {
     cursor: pointer;
 }
-.abovebar{
+
+.abovebar {
     justify-content: space-between;
+}
+
+.sample {
+    height: 60vh;
+    width: 80vw;
 }
