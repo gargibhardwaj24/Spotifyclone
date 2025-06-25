@@ -43,18 +43,16 @@ function setupTimeUpdates(audioElement) {
 
 audioElement.addEventListener("timeupdate", () => {
   currentTimeEl.textContent = formatTime(audioElement.currentTime);
-  document.querySelector("circle").setAttribute("cx", (audioElement.currentTime / audioElement.duration) * 100 + "%");
-});
 
+const progress = document.querySelector(".circle .progress");
+if (progress && audioElement.duration) {
+  const percent = (audioElement.currentTime / audioElement.duration) * 100;
+  progress.style.width = `${percent}%`;
+}
+});
 
 
 }
-document.querySelector("svg").addEventListener("click", (e) => {
-  const rect = e.currentTarget.getBoundingClientRect();
-  const percent = (e.clientX - rect.left) / rect.width;
-  currentSong.currentTime = percent * currentSong.duration;
-});
-
 
 async function main() {
   const songs = await getSongs();
@@ -112,12 +110,16 @@ async function main() {
       playBtn.src = "svg/play.svg";
     }
   });
-   document.querySelector("svg").addEventListener("click", (e) => {
+   document.querySelector(".circle").addEventListener("click", (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const percent = (e.clientX - rect.left) / rect.width;
     currentSong.currentTime = percent * currentSong.duration;
   });
 
+// add an eventlistner
+document.querySelector(".hamburger").addEventListener("click", ()=>{
+  document.querySelector(".left").style.left = "0";
+})
 }
 
 main();

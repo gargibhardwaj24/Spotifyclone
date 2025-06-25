@@ -373,16 +373,22 @@ div h3:hover {
     margin: 0px;
     cursor: pointer;
 }
+.hamburger{
+ display: none;
+ cursor: pointer;
+}
 
 .circle {
-    width: 13px;
-    height: 13px;
-    border-radius: 13px;
-    background-color: white;
-    position: relative;
-    bottom: 5px;
-    left: 0%;
-    transition: left 0.5s;
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  position: relative;
+  cursor: pointer;
+}
+.circle .progress {
+  height: 100%;
+  background-color: rgba(70, 69, 69, 0.851);
+  width: 0%;
 }
 
 .song-buttons img {
@@ -396,4 +402,27 @@ div h3:hover {
 .sample {
     height: 60vh;
     width: 80vw;
+}
+@media (max-width: 1400px) {
+     .left {
+        position: absolute;
+        left: -130%;
+        transition: all .3s;
+        z-index: 1;
+        width: 373px;
+        background-color: black;
+        padding: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+    }
+    .right{
+        width: 100vw;
+    }
+    .playbar{
+        width: 100vh;
+    }
+      .hamburger {
+        display: block;
+    }
 }
