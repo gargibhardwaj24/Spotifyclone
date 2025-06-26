@@ -14,6 +14,7 @@ body {
 
 .left {
     width: 25vw;
+    height: 98vh;
 }
 
 .right {
@@ -40,6 +41,7 @@ nav {
     top: 0;
     position: sticky;
     background-color: black;
+    z-index: 1;
 }
 
 nav ul,
@@ -123,6 +125,8 @@ nav ol div li:hover {
 .library {
     background-color: rgba(128, 128, 128, 0.16);
     padding: 7px;
+    height: 95vh;
+    width: 23vw;
 }
 
 .heading {
@@ -202,12 +206,14 @@ nav ol div li:hover {
     font-size: 10px;
     text-decoration: none;
     color: white;
+
 }
 
 .other {
     width: 25vw;
     padding: 5px;
     margin: 0;
+
 }
 
 div h3 {
@@ -373,22 +379,24 @@ div h3:hover {
     margin: 0px;
     cursor: pointer;
 }
-.hamburger{
- display: none;
- cursor: pointer;
+
+.hamburger {
+    display: none;
+    cursor: pointer;
 }
 
 .circle {
-  width: 100%;
-  height: 10px;
-  background-color: #ccc;
-  position: relative;
-  cursor: pointer;
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    position: relative;
+    cursor: pointer;
 }
+
 .circle .progress {
-  height: 100%;
-  background-color: rgba(70, 69, 69, 0.851);
-  width: 0%;
+    height: 100%;
+    background-color: rgba(70, 69, 69, 0.851);
+    width: 0%;
 }
 
 .song-buttons img {
@@ -403,26 +411,66 @@ div h3:hover {
     height: 60vh;
     width: 80vw;
 }
+
 @media (max-width: 1400px) {
-     .left {
+    .left {
         position: absolute;
         left: -130%;
         transition: all .3s;
         z-index: 1;
-        width: 373px;
+        width: 365px;
         background-color: black;
         padding: 0;
-        height: 100vh;
-        position: fixed;
         top: 0;
+        border-radius: 7px;
     }
-    .right{
+
+    .library {
+        z-index:1 ;
+        height: 95vh;
+        width: 98%;
+        margin: auto;
+    }
+
+    .right {
         width: 100vw;
     }
-    .playbar{
+
+    .playbar {
         width: 100vh;
     }
-      .hamburger {
+
+    .hamburger {
         display: block;
     }
+
+    #playlistbutton {
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+        height: 40px;
+        width: 12vw;
+    }
+
+    #podcastbutton {
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+        height: 40px;
+        width: 16vw;
+    }
+
+    .language {
+        width: 10vw;
+    }
+
+    nav ol {
+        position: absolute;
+        right: -100%;
+    }
+
+    nav ul .search {
+        width: 35vw;
+    }
 }
+@media (max-width: 1070px) {
