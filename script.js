@@ -50,12 +50,27 @@ if (progress && audioElement.duration) {
   progress.style.width = `${percent}%`;
 }
 });
+}
+function playSong(songFileName) {
+  currentSong.pause();
+  currentSong.currentTime = 0;
+  currentSong.src = `songs/${songFileName}`;
+  document.querySelector(".songinfo").innerHTML = decodeURIComponent(songFileName.replace(".mp3", ""));
+  document.getElementById("currentTime").textContent = "0:00";
+  document.getElementById("duration").textContent = "0:00";
+  setupTimeUpdates(currentSong);
 
-
+  currentSong.play()
+    .then(() => {
+      playBtn.src = "svg/pause.svg";
+      console.log("Now playing:", songFileName);
+    })
+    .catch(err => console.error("Playback failed:", err));
 }
 
 async function main() {
   const songs = await getSongs();
+  const prevBtn = document.getElementById("prev");
   console.log("Songs found:", songs);
 
   const buttons = document.querySelectorAll(".songList .songs");
@@ -97,7 +112,7 @@ async function main() {
   // const playBtn = document.getElementById("play");
 
   playBtn.addEventListener("click", () => {
-    if (!currentSong.src) return; // do nothing if no song loaded
+    if (!currentSong.src) return; // does nothing if no song loaded
 
     if (currentSong.paused) {
       currentSong.play()
@@ -123,6 +138,33 @@ document.querySelector(".hamburger").addEventListener("click", ()=>{
 document.querySelector(".right").addEventListener("click",()=>{
     document.querySelector(".left").style.left = "-100%";
 })
+// event listner to prev
+prevBtn.addEventListener("click", () => {
+  let currentFile = currentSong.src.split("/").pop();
+  let currentIndex = songs.indexOf(currentFile);
+
+  if (currentIndex > 0) {
+    const prevSong = songs[currentIndex - 1];
+    playSong(prevSong);
+  } else {
+    console.log("This is the first song in the list.");
+  }
+});
+
+
+// add event listner to next
+const nextBtn = document.getElementById("next");
+nextBtn.addEventListener("click", () => {
+  let currentFile = currentSong.src.split("/").pop(); 
+  let currentIndex = songs.indexOf(currentFile);
+
+  if (currentIndex < songs.length - 1) {
+    const nextSong = songs[currentIndex + 1];
+    playSong(nextSong);
+  } else {
+    console.log("No more songs in the list.");
+  }
+});
 }
 
 main();

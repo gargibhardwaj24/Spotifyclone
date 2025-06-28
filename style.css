@@ -413,67 +413,6 @@ div h3:hover {
     width: 80vw;
 }
 
-@media (max-width: 1400px) {
-    .left {
-        position: absolute;
-        left: -130%;
-        transition: all .3s;
-        z-index: 1;
-        width: 365px;
-        background-color: black;
-        padding: 0;
-        top: 0;
-        border-radius: 7px;
-    }
-
-    .library {
-        z-index: 1;
-        height: 95vh;
-        width: 98%;
-        margin: auto;
-    }
-
-    .right {
-        width: 100vw;
-    }
-
-    .playbar {
-        width: 100vh;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    #playlistbutton {
-        background-color: white;
-        color: black;
-        border-radius: 20px;
-        height: 40px;
-        width: 12vw;
-    }
-
-    #podcastbutton {
-        background-color: white;
-        color: black;
-        border-radius: 20px;
-        height: 40px;
-        width: 16vw;
-    }
-
-    .language {
-        width: 10vw;
-    }
-
-    nav ol {
-        position: absolute;
-        right: -100%;
-    }
-
-    nav ul .search {
-        width: 35vw;
-    }
-}
 
 @media (max-width: 1400px) {
     .left {
@@ -488,70 +427,13 @@ div h3:hover {
         border-radius: 7px;
     }
 
-    .library {
-        z-index: 1;
-        height: 95vh;
-        width: 98%;
-        margin: auto;
-    }
-
-    .right {
-        width: 100vw;
-    }
-
-    .playbar {
-        width: 100vh;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    #playlistbutton {
-        background-color: white;
-        color: black;
-        border-radius: 20px;
-        height: 40px;
-        width: 12vw;
-    }
-
-    #podcastbutton {
-        background-color: white;
-        color: black;
-        border-radius: 20px;
-        height: 40px;
-        width: 16vw;
-    }
-
-    .language {
-        width: 10vw;
-    }
-
-    nav ol {
-        position: absolute;
-        right: -100%;
-    }
-
-    nav ul .search {
-        width: 35vw;
-    }
-}
-
-@media (max-width: 800px) {
-    .nav {
-        background-color: black;
-    }
-
-    .cardContainer {
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-    }
 
     .card {
-        width: 60vw;
+        width: 20vw;
         height: 40vh;
         justify-content: center;
+        align-items: center;
+        
     }
 
     .card img {
@@ -564,6 +446,89 @@ div h3:hover {
 
     .card p {
         font-size: 18px;
+        margin: 10px;
+    }
+
+    .library {
+        z-index: 1;
+        height: 95vh;
+        width: 98%;
+        margin: auto;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: 100vh;
+        position: absolute;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    #playlistbutton {
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+        height: 40px;
+        width: 12vw;
+    }
+
+    #podcastbutton {
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+        height: 40px;
+        width: 16vw;
+    }
+
+    .language {
+        width: 10vw;
+    }
+
+    nav ol {
+        position: absolute;
+        right: -100%;
+    }
+
+    nav ul .search {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 920px) {
+    .nav {
+        background-color: black;
+    }
+
+    .cardContainer {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .card {
+        width: 70vw;
+        height: 40vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card img {
+        height: 30vh;
+    }
+
+    .card h2 {
+        font-size: 24px;
+    }
+
+    .card p {
+        font-size: 18px;
+        margin: 10px;
     }
 
     .songList ul {
@@ -597,7 +562,7 @@ div h3:hover {
     }
     .playbar{
         position: absolute;
-        width: 100vw;
+        width: 90vw;
     }
     .left{
         width: 310px;
