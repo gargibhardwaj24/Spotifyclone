@@ -171,8 +171,20 @@ document.querySelector(".range").getElementsByTagName("input")[0].addEventListen
   console.log("Setting volume to", e.target.value)
   currentSong.volume = parseInt(e.target.value)/100
 })
+const cards = document.querySelectorAll(".card");
+cards.forEach((card, i) => {
+  const playDiv = card.querySelector(".playdiv");
+  if (songs[i]) {
+    playDiv.addEventListener("click", () => {
+      playSong(songs[i]);
+    });
+  } else {
+    playDiv.addEventListener("click", () => {
+      alert("No song assigned to this card.");
+    });
+  }
+});
 }
-
 main();
 // async function main() {
 //   const songs = await getSongs();
