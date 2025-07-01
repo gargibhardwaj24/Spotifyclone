@@ -175,6 +175,15 @@ const cards = document.querySelectorAll(".card");
 cards.forEach((card, i) => {
   const playDiv = card.querySelector(".playdiv");
   if (songs[i]) {
+    const cards = document.querySelectorAll(".card");
+    const songTitle = decodeURIComponent(songs[i].replace(".mp3", ""));
+    const h2 = card.querySelector("h2");
+    if (h2) h2.textContent = songTitle;
+    const [title, artist] = songTitle.split("- ");
+if (h2) h2.textContent = title || songTitle;
+const p = card.querySelector("p");
+if (p) p.textContent = artist || "Unknown Artist";
+
     playDiv.addEventListener("click", () => {
       playSong(songs[i]);
     });
@@ -184,111 +193,25 @@ cards.forEach((card, i) => {
     });
   }
 });
+
+
+const element = document.querySelector('.cardContainer');
+const toggleButton = document.querySelector('.showall');
+
+element.classList.add('nowrap');
+toggleButton.textContent = "Show all"; 
+
+toggleButton.addEventListener('click', () => {
+  element.classList.toggle('wrap');
+  element.classList.toggle('nowrap');
+
+  if (toggleButton.textContent === "Show all") {
+    toggleButton.textContent = "Show less";
+  } else {
+    toggleButton.textContent = "Show all";
+  }
+});
+
+
 }
 main();
-// async function main() {
-//   const songs = await getSongs();
-//   const prevBtn = document.getElementById("prev");
-//   console.log("Songs found:", songs);
-
-//   const buttons = document.querySelectorAll(".cardContainer .card");
-
-//   buttons.forEach((btn, i) => {
-//     if (songs[i]) {
-//       // btn.textContent = `▶ ${decodeURIComponent(songs[i].split(".mp3")[0])}`;
-
-//       btn.addEventListener("click", () => {
-//         currentSong.pause();
-//         currentSong.currentTime = 0;
-//         currentSong.src = `songs/${songs[i]}`;
-//         document.querySelector(".songinfo").innerHTML = decodeURIComponent(songs[i].replace(".mp3", ""));
-//         document.getElementById("currentTime").textContent = "0:00";
-//         document.getElementById("duration").textContent = "0:00";
-
-
-//         setupTimeUpdates(currentSong);
-
-//         currentSong.play()
-//           .then(() => {
-//             playBtn.src = "svg/pause.svg";
-//             //  updateTimeUI(); 
-//             console.log("Now playing:", songs[i]);
-  
-//           })
-//           .catch(err => console.error("Playback failed:", err));
-                       
-
-//       });
-//     } else {
-//       btn.textContent = "— no song —";
-//       btn.disabled = true;
-//     }
-
-
-//   });
-
-//   // const playBtn = document.getElementById("play");
-
-//   playBtn.addEventListener("click", () => {
-//     if (!currentSong.src) return; // does nothing if no song loaded
-
-//     if (currentSong.paused) {
-//       currentSong.play()
-//         .then(() => {
-//           playBtn.src = "svg/pause.svg";
-//         })
-//         .catch(err => console.error("Error playing audio:", err));
-//     } else {
-//       currentSong.pause();
-//       playBtn.src = "svg/play.svg";
-//     }
-//   });
-//    document.querySelector(".circle").addEventListener("click", (e) => {
-//     const rect = e.currentTarget.getBoundingClientRect();
-//     const percent = (e.clientX - rect.left) / rect.width;
-//     currentSong.currentTime = percent * currentSong.duration;
-//   });
-
-// // add an eventlistner
-// document.querySelector(".hamburger").addEventListener("click", ()=>{
-//   document.querySelector(".left").style.left = "0";
-// })
-// document.querySelector(".right").addEventListener("click",()=>{
-//     document.querySelector(".left").style.left = "-100%";
-// })
-// // event listner to prev
-// prevBtn.addEventListener("click", () => {
-//   let currentFile = currentSong.src.split("/").pop();
-//   let currentIndex = songs.indexOf(currentFile);
-
-//   if (currentIndex > 0) {
-//     const prevSong = songs[currentIndex - 1];
-//     playSong(prevSong);
-//   } else {
-//     console.log("This is the first song in the list.");
-//   }
-// });
-
-
-// // add event listner to next
-// const nextBtn = document.getElementById("next");
-// nextBtn.addEventListener("click", () => {
-//   let currentFile = currentSong.src.split("/").pop(); 
-//   let currentIndex = songs.indexOf(currentFile);
-
-//   if (currentIndex < songs.length - 1) {
-//     const nextSong = songs[currentIndex + 1];
-//     playSong(nextSong);
-//   } else {
-//     console.log("No more songs in the list.");
-//   }
-// });
-
-// // add an event to volume 
-// document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e)=>{
-//   console.log("Setting volume to", e.target.value)
-//   currentSong.volume = parseInt(e.target.value)/100
-// })
-// }
-
-// main();

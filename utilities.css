@@ -24,3 +24,15 @@
     font-family: "Poppins", sans-serif;
     font-style: normal;
 }
+.wrap {
+  flex-wrap: wrap;
+}
+.nowrap {
+  flex-wrap: nowrap;
+}
+.visible{
+    opacity: 1;
+}
+.hidden{
+    opacity: 0;
+}

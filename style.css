@@ -260,7 +260,12 @@ div h3:hover {
     font-size: 12px;
     color: grey;
 }
-
+.cardContainer{
+    overflow: auto;
+}
+.cardContainer::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, Edge */
+}
 .cardContainer div {
     padding: 20px;
     gap: 20px;
@@ -350,6 +355,10 @@ div h3:hover {
 .songList button:hover {
     background-color: rgba(128, 128, 128, 0.079);
 }
+/* document.querySelector(".showall").addEventListener("click" , ()=>{
+  document.querySelector(".cardContainer").style.flexWrap = "wrap";
+  document.querySelector(".showall").innerHTML = "Show less"
+}) */
 
 .songList ul {
     display: grid;
@@ -438,14 +447,13 @@ div h3:hover {
 
     .card {
         width: 20vw;
-        height: 40vh;
         justify-content: center;
         align-items: center;
 
     }
 
     .card img {
-        height: 30vh;
+        height: 150px;
     }
 
     .card h2 {
@@ -516,6 +524,7 @@ div h3:hover {
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        /* flex-wrap: nowrap; */
 
     }
 
