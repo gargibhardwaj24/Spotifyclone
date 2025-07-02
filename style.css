@@ -259,6 +259,7 @@ div h3:hover {
 .showall {
     font-size: 12px;
     color: grey;
+    cursor: pointer;
 }
 .cardContainer{
     overflow: auto;
@@ -301,6 +302,13 @@ div h3:hover {
     position: absolute;
     right: 1px;
     bottom: 90px;
+
+}
+.pausediv{
+    display: none;
+    position: absolute;
+    right: 1px;
+    bottom: 85px;
 
 }
 

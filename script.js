@@ -15,7 +15,7 @@ async function getSongs() {
     if (href.includes(".mp3") && href.endsWith("/.preview")) {
       const fileWithPreview = href.split("/songs/")[1];
       const fileName = fileWithPreview.split("/")[0];
-      songs.push(fileName);
+      songs.push(fileName); 
     }
   }
 
@@ -66,6 +66,22 @@ function playSong(songFileName) {
       console.log("Now playing:", songFileName);
     })
     .catch(err => console.error("Playback failed:", err));
+}
+const playCardSVG = `
+<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="black">
+  <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606" />
+</svg>
+`;
+
+const pauseCardSVG = `
+<svg width="44" height="44" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"> 
+  <circle cx="32" cy="32" r="32" fill="#1DB954"/>
+  <rect x="20" y="18" width="8" height="28" fill="black"/>
+  <rect x="36" y="18" width="8" height="28" fill="black"/>
+</svg>
+`;
+function togglePlayPauseSVG(playButtonEl, isPlaying) {
+  playButtonEl.innerHTML = isPlaying ? pauseCardSVG : playCardSVG;
 }
 
 async function main() {
@@ -171,9 +187,11 @@ document.querySelector(".range").getElementsByTagName("input")[0].addEventListen
   console.log("Setting volume to", e.target.value)
   currentSong.volume = parseInt(e.target.value)/100
 })
+let currentlyPlayingCard = null;
+
 const cards = document.querySelectorAll(".card");
 cards.forEach((card, i) => {
-  const playDiv = card.querySelector(".playdiv");
+  const playDiv = card.querySelector(".play-button");
   if (songs[i]) {
     const cards = document.querySelectorAll(".card");
     const songTitle = decodeURIComponent(songs[i].replace(".mp3", ""));
@@ -185,7 +203,10 @@ const p = card.querySelector("p");
 if (p) p.textContent = artist || "Unknown Artist";
 
     playDiv.addEventListener("click", () => {
+      // cards.forEach(c => togglePlayPauseSVG(c.querySelector(".playdiv"), false));
       playSong(songs[i]);
+      togglePlayPauseSVG(playDiv, true);
+      
     });
   } else {
     playDiv.addEventListener("click", () => {
@@ -211,6 +232,7 @@ toggleButton.addEventListener('click', () => {
     toggleButton.textContent = "Show all";
   }
 });
+
 
 
 }
