@@ -2,25 +2,26 @@ let currentSong = new Audio();
 const playBtn = document.getElementById("play"); // this is your play/pause button
 
 async function getSongs() {
-  let a = await fetch("http://127.0.0.1:5500/songs/");
-  let response = await a.text();
-  let div = document.createElement("div");
-  div.innerHTML = response;
-  let as = div.getElementsByTagName("a");
-  let songs = [];
-
-  for (let index = 0; index < as.length; index++) {
-    const href = as[index].href;
-
-    if (href.includes(".mp3") && href.endsWith("/.preview")) {
-      const fileWithPreview = href.split("/songs/")[1];
-      const fileName = fileWithPreview.split("/")[0];
-      songs.push(fileName); 
+  try {
+    // fetch the pre‑generated manifest
+    const res = await fetch('/songs.json');
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} fetching songs.json`);
     }
+    const songs = await res.json();      // e.g. [ "track1.mp3", "track2.mp3", ... ]
+    
+    // optional: validate format
+    if (!Array.isArray(songs)) {
+      throw new Error('Invalid songs.json format: expected an array');
+    }
+    
+    return songs;
+  } catch (err) {
+    console.error('Could not load song list:', err);
+    return [];   // fail gracefully
   }
-
-  return songs;
 }
+
 function formatTime(seconds) {
   if (isNaN(seconds)) return "0:00";
   const mins = Math.floor(seconds / 60);
