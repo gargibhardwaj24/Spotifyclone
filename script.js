@@ -67,22 +67,7 @@ function playSong(songFileName) {
     })
     .catch(err => console.error("Playback failed:", err));
 }
-const playCardSVG = `
-<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24" fill="black">
-  <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606" />
-</svg>
-`;
 
-const pauseCardSVG = `
-<svg width="44" height="44" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"> 
-  <circle cx="32" cy="32" r="32" fill="#1DB954"/>
-  <rect x="20" y="18" width="8" height="28" fill="black"/>
-  <rect x="36" y="18" width="8" height="28" fill="black"/>
-</svg>
-`;
-function togglePlayPauseSVG(playButtonEl, isPlaying) {
-  playButtonEl.innerHTML = isPlaying ? pauseCardSVG : playCardSVG;
-}
 
 async function main() {
   const songs = await getSongs();
@@ -90,10 +75,33 @@ async function main() {
   console.log("Songs found:", songs);
 
   const buttons = document.querySelectorAll(".songList .songs");
+  const songImages = [
+  "https://i.scdn.co/image/ab67616d00001e0214691359e2723059bbec9cde",
+  "https://i.scdn.co/image/ab67616d00001e020f48649d4f365018a9dee53b",
+  "https://i.scdn.co/image/ab67616d00001e02da990e21d4815d6b2b2d58e8",
+  "https://i.scdn.co/image/ab67616d00001e02c8e97cafeb2acb85b21a777e",
+  "https://i.scdn.co/image/ab67616d00001e0283141000ee8ce3b893a0b425",
+  "https://i.scdn.co/image/ab67616d00001e0205177674b12f7cf7fa33f1dc",
+  "https://i.scdn.co/image/ab67616d00001e020a47bbe7141fdfe0eb2cdba7",
+  "https://i.scdn.co/image/ab67616d00001e026fbb60d6a7e03ccb940a518e",
+  "https://i.scdn.co/image/ab67616d00001e0297585d74e0b581a23593f613",
+  "https://i.scdn.co/image/ab67616d00001e027480ebc1c684ccf400570a39"
+];
+
 
   buttons.forEach((btn, i) => {
     if (songs[i]) {
-      btn.textContent = `▶ ${decodeURIComponent(songs[i].split(".mp3")[0])}`;
+      const songTitle = decodeURIComponent(songs[i].split(".mp3")[0]);
+      btn.innerHTML = `
+      <div class="song-thumb">
+        <img src="${songImages[i]}" alt="Album cover">
+        <div class="hover-play">
+          <img src="svg/play.svg" alt="Play Icon">
+        </div>
+      </div>
+      <span class="label">${songTitle}</span>
+    `;
+    
 
       btn.addEventListener("click", () => {
         currentSong.pause();
@@ -203,10 +211,7 @@ const p = card.querySelector("p");
 if (p) p.textContent = artist || "Unknown Artist";
 
     playDiv.addEventListener("click", () => {
-      // cards.forEach(c => togglePlayPauseSVG(c.querySelector(".playdiv"), false));
       playSong(songs[i]);
-      togglePlayPauseSVG(playDiv, true);
-      
     });
   } else {
     playDiv.addEventListener("click", () => {
