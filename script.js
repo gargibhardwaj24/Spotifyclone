@@ -2,6 +2,8 @@
 let songs = [];
 let currentSong = new Audio();
 const playBtn = document.getElementById("play"); // play/pause button
+const cardContainer = document.querySelector(".cardContainer");
+const toggleButton = document.querySelector(".showall");
 
 // ───────── Fetch Song List ─────────
 async function getSongs() {
@@ -165,34 +167,67 @@ async function main() {
 
   // CARD PLAY BUTTONS 
   document.querySelectorAll(".card").forEach((card, i) => {
+  const playBtnInCard = card.querySelector(".play-button");
 
-    const playBtnInCard = card.querySelector(".play-button");
-    if (songs[i]) {
-      const raw = songs[i].replace(/\.mp3$/, "");
-      const [title, artist = "Unknown"] = raw.split(" - ");
-      card.children[3].style.fontWeight="bold"
-      card.querySelector("h2").textContent = title;
-      card.querySelector("p").textContent  = artist;
-      playBtnInCard.addEventListener("click", () => playSong(songs[i]));
-    } else {
-      playBtnInCard.addEventListener("click", () => {
-        alert("No song assigned to this card.");
-      });
+  if (songs[i]) {
+    // derive title & artist
+    const raw = songs[i].replace(/\.mp3$/, "");
+    const [title, artist = "Unknown"] = raw.split(" - ");
+
+    // find or create the <h2> for title
+    let titleEl = card.querySelector("h2");
+    if (!titleEl) {
+      titleEl = document.createElement("h2");
+      card.appendChild(titleEl);
     }
-  });
+    titleEl.textContent = title;
+    titleEl.style.fontWeight = "bold";
 
-  // SHOW ALL / SHOW LESS toggle 
-  const grid = document.querySelector(".cardContainer");
-  const toggle = document.querySelector(".showall");
-  if (grid && toggle) {
-    grid.classList.add("nowrap");
-    toggle.textContent = "Show all";
-    toggle.addEventListener("click", () => {
-      grid.classList.toggle("wrap");
-      grid.classList.toggle("nowrap");
-      toggle.textContent = toggle.textContent === "Show all" ? "Show less" : "Show all";
+    // find or create the <p> for artist
+    let artistEl = card.querySelector("p");
+    if (!artistEl) {
+      artistEl = document.createElement("p");
+      card.appendChild(artistEl);
+    }
+    artistEl.textContent = artist;
+
+    // wire up play
+    playBtnInCard.addEventListener("click", () => playSong(songs[i]));
+  } else {
+    playBtnInCard.addEventListener("click", () => {
+      alert("No song assigned to this card.");
     });
   }
+});
+
+
+  // SHOW ALL / SHOW LESS toggle 
+  // const grid = document.querySelector(".cardContainer");
+  // if (grid && toggle) {
+  //   grid.classList.add("nowrap");
+  //   toggle.textContent = "Show all";
+  //   toggle.addEventListener("click", () => {
+  //     grid.classList.toggle("wrap");
+  //     grid.classList.toggle("nowrap");
+  //     toggle.textContent = toggle.textContent === "Show all" ? "Show less" : "Show all";
+  //   });
+  // }
+
+
+cardContainer.classList.add('nowrap');
+toggleButton.textContent = "Show all"; 
+toggleButton.addEventListener('click', () => {
+  console.log("hello");
+  cardContainer.classList.toggle('wrap');
+  cardContainer.classList.toggle('nowrap');
+  if (toggleButton.textContent === "Show all") {
+    toggleButton.textContent = "Show less";
+  } else {
+    toggleButton.textContent = "Show all";
+  }
+});
+
+
 }
 
 main();
