@@ -1,3 +1,9 @@
+
+html,body{
+    overflow: hidden;
+    height: 100%;
+    touch-action: none;
+}
 .border {
     border: 2px;
     margin: 5px;
